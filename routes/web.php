@@ -22,7 +22,7 @@ Route::get('about',function()
 Route::view('contact','contact'); //แบบที่2
 
 Route::get('customers', 'CustomersController@list'); //
-
+Route::post('customers', 'CustomersController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

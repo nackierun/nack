@@ -23,7 +23,7 @@ class CustomersController extends Controller
 
         $data = request()->validate([
             'name' => 'required|min:3',
-            'email' => 'required'
+            'email' => 'required|email'
         ]);
 
 

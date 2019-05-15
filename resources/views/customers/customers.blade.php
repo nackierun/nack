@@ -1,11 +1,14 @@
 @extends('layouts.myapp')
+@section('title')
+Customers
+@endsection
 @section('content')
 <h1>Customers</h1>
 <form action="customers" method="POST" class="pb-5">
     <div class="input-group"><p>Name</p>
-<input type="text" name="name">
+    <input type="text" name="name" value="{{ old('name') }}">
     </div>
-   <div class=" input-group"><p>Email</p><input type="email" name="email" id=""></div>
+<div class=" input-group"><p>Email</p><input type="email" name="email" value="{{ old('email') }}"></div>
     <div><button type="submit" class="btn btn-primary">Submit</button>
     @csrf</div>
 

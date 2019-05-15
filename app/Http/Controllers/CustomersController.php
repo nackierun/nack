@@ -34,13 +34,15 @@ class CustomersController extends Controller
         ]); //ฟิลที่ห้ามว่าง
 
 
-        $customers = new Customer();
+        $customers = Customer::create($data);
+        /*$customers = new Customer();
         $customers->name = request('name');
         $customers->email = request('email');
         $customers->active = request('active');
         $customers->save();
-        return back(); //รับข้อมูลจากฟิลส่งขึ้นDB
-
+         //รับข้อมูลจากฟิลส่งขึ้นDB
+        */
         //dd(request('name'));
+        return back();
     }
 }

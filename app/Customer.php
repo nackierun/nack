@@ -8,6 +8,10 @@ class Customer extends Model
 {
     //
     //protected $table = 'customers';
+    //protected $fillable = ['name', 'email', 'active'];
+
+    protected $guarded = [];
+
     public function scopeActive($query){
 
         return $query->where('active', 1);

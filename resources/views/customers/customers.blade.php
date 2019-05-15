@@ -13,12 +13,12 @@ Customers
 <form action="customers" method="POST" class="pb-5">
     <div class="form-group col-md-6">
         <p>Name</p>
-    <input type="text" name="name" value="{{ old('name') }}">
+    <input type="text" name="name" value="{{ old('name') }}"><!--ไม่รีเซทฟิลด์ -->
     </div>
 
 <div class="form-group col-md-6">
     <p>Email</p>
-    <input type="email" name="email" value="{{ old('email') }}">
+    <input type="email" name="email" value="{{ old('email') }}"><!--ไม่รีเซทฟิลด์ -->
 </div>
 
 
@@ -32,11 +32,11 @@ Customers
   </div>
 
     <div>
-        <button type="submit" class="btn btn-primary col-md-6">Submit</button>
+        <button type="submit" class="btn btn-primary col-md-6">บันทึก</button>
         @csrf
     </div>
 
-
+    <!-- แจ้งเตือนฟิลว่าง -->
     {{ $errors->first('name') }}
     {{ $errors->first('email') }}
     {{ $errors->first('active') }}
@@ -45,7 +45,7 @@ Customers
 </div>
 <div class="row col-md-6">
 
-
+<!-- -->
 <div class="col-6">
 <ul>
     <h2>Active Users</h2>
@@ -57,6 +57,7 @@ Customers
 </div>
 <div class="col-6">
 <ul>
+    <!-- -->
     <h2>Inactive Users</h2>
     @foreach ($inactivecustomers as $inactivecustomers)
 <li> {{ $inactivecustomers->name }}  <span class="text-muted">{{ $inactivecustomers->email }}</span></li>

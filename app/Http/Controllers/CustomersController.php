@@ -12,11 +12,11 @@ class CustomersController extends Controller
 
     //$customers = Customer::all();
 
-        $activecustomers = Customer::where('active',1)->get();
-        $inactivecustomers = Customer::where('active',0)->get();
+        $activecustomers = Customer::active()->get(); //Model Customer
+        $inactivecustomers = Customer::inactive()->get(); //''
     //dd($customers);
 
-    return view('customers.customers', compact('activecustomers', 'inactivecustomers')
+    return view('customers.customers', compact('activecustomers', 'inactivecustomers')//แสดงผลพร้อมสถานะยูเซอ
    // ['activecustomers' => $activecustomers,
    //     'inactivecustomers' => $inactivecustomers,]
                );}
@@ -31,7 +31,7 @@ class CustomersController extends Controller
             'name' => 'required|min:3',
             'email' => 'required|email',
             'active' => 'required'
-        ]);
+        ]); //ฟิลที่ห้ามว่าง
 
 
         $customers = new Customer();
@@ -39,7 +39,7 @@ class CustomersController extends Controller
         $customers->email = request('email');
         $customers->active = request('active');
         $customers->save();
-        return back();
+        return back(); //รับข้อมูลจากฟิลส่งขึ้นDB
 
         //dd(request('name'));
     }

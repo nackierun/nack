@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer; //เรียกโมเดล
+use App\Company;
 
 class CustomersController extends Controller
 {
@@ -14,9 +15,10 @@ class CustomersController extends Controller
 
         $activecustomers = Customer::active()->get(); //Model Customer
         $inactivecustomers = Customer::inactive()->get(); //''
+        $companies = Company::all();
     //dd($customers);
 
-    return view('customers.customers', compact('activecustomers', 'inactivecustomers')//แสดงผลพร้อมสถานะยูเซอ
+    return view('customers.customers', compact('activecustomers', 'inactivecustomers','companies')//แสดงผลพร้อมสถานะยูเซอ
    // ['activecustomers' => $activecustomers,
    //     'inactivecustomers' => $inactivecustomers,]
                );}
@@ -30,7 +32,8 @@ class CustomersController extends Controller
         $data = request()->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
-            'active' => 'required'
+            'active' => 'required',
+            'company_id' => 'required',
         ]); //ฟิลที่ห้ามว่าง
 
 

@@ -8,11 +8,18 @@ use App\Company;
 class CompanyController extends Controller {
 
     //
-    public function showcomp() {
+    public function index() {
 
         $companies = Company::all();
 
-        return view('customers.companies', compact('companies'));
+        return view('company.index', compact('companies'));
+    }
+
+    public  function  create(){
+
+        $companies = Company::all();
+
+        return view('company.create', compact('companies'));
     }
 
     public function store() {
@@ -23,7 +30,8 @@ class CompanyController extends Controller {
         ]);
 
         $companies = Company::create($data);
-        return back();
+        return redirect('company');
     }
+
 
 }

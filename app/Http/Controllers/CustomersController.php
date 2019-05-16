@@ -6,26 +6,38 @@ use Illuminate\Http\Request;
 use App\Customer; //เรียกโมเดล
 use App\Company;
 
-class CustomersController extends Controller {
+class CustomersController extends Controller
+{
 
     //
-    public function list() {
+    public function index()
+    {
 
-        //$customers = Customer::all();
+        $companies = Company::all();
+        $customers = Customer::all();
 
         $activecustomers = Customer::active()->get(); //Model Customer
         $inactivecustomers = Customer::inactive()->get(); //''
-        $companies = Company::all();
+
         //dd($customers);
 
-        return view('customers.customers', compact('activecustomers', 'inactivecustomers', 'companies')//แสดงผลพร้อมสถานะยูเซอ
-                // ['activecustomers' => $activecustomers,
-                //     'inactivecustomers' => $inactivecustomers,]
+        return view('customers.index', compact('activecustomers', 'inactivecustomers', 'companies','customers')//แสดงผลพร้อมสถานะยูเซอ
+        // ['activecustomers' => $activecustomers,
+        //     'inactivecustomers' => $inactivecustomers,]
         );
     }
 
-    public function store() {
+    public function create()
+    {
+        $companies = Company::all();
+        $activecustomers = Customer::active()->get(); //Model Customer
+        $inactivecustomers = Customer::inactive()->get(); //''
+        return view('customers.create', compact('activecustomers', 'inactivecustomers', 'companies'));
+    }
 
+
+    public function store()
+    {
 
 
         //dd($activecustomers);
@@ -48,7 +60,7 @@ class CustomersController extends Controller {
           //รับข้อมูลจากฟิลส่งขึ้นDB
          */
         //dd(request('name'));
-        return back();
+        return redirect('customers');
     }
 
 }

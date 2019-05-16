@@ -14,17 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('about',function()
-{
+Route::get('about', function () {
     return view('about'); //แบบที่1
 });
 
-Route::view('contact','contact'); //แบบที่2
+Route::view('contact', 'contact'); //แบบที่2
 
-Route::get('customers', 'CustomersController@list'); //
+Route::get('customers', 'CustomersController@index');
+Route::get('customers/create', 'CustomersController@create');//
 Route::post('customers', 'CustomersController@store');//บันทึกข้อมูลด้วยฟังชั่นในcontroller
-Route::get('companies', 'CompanyController@showcomp');
-Route::post('companies', 'CompanyController@store');
+Route::get('company', 'CompanyController@index');
+Route::get('company/create', 'CompanyController@create');
+Route::post('company', 'CompanyController@store');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

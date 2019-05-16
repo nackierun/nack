@@ -12,11 +12,11 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/companies') }}"> Home</a></li>
+                        <a class="nav-link" href="{{ url('/company') }}"> Company List</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="customers">Contact us</a></li>
+                            <a class="nav-link" href="{{  url('/customers')  }}">Customers List</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="home">Customers</a></li>
+                            <a class="nav-link" href="{{  url('/home')  }}">User</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

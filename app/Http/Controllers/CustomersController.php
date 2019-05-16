@@ -6,23 +6,25 @@ use Illuminate\Http\Request;
 use App\Customer; //เรียกโมเดล
 use App\Company;
 
-class CustomersController extends Controller
-{
-    //
-    public function list(){
+class CustomersController extends Controller {
 
-    //$customers = Customer::all();
+    //
+    public function list() {
+
+        //$customers = Customer::all();
 
         $activecustomers = Customer::active()->get(); //Model Customer
         $inactivecustomers = Customer::inactive()->get(); //''
         $companies = Company::all();
-    //dd($customers);
+        //dd($customers);
 
-    return view('customers.customers', compact('activecustomers', 'inactivecustomers','companies')//แสดงผลพร้อมสถานะยูเซอ
-   // ['activecustomers' => $activecustomers,
-   //     'inactivecustomers' => $inactivecustomers,]
-               );}
-    public function store(){
+        return view('customers.customers', compact('activecustomers', 'inactivecustomers', 'companies')//แสดงผลพร้อมสถานะยูเซอ
+                // ['activecustomers' => $activecustomers,
+                //     'inactivecustomers' => $inactivecustomers,]
+        );
+    }
+
+    public function store() {
 
 
 
@@ -38,14 +40,15 @@ class CustomersController extends Controller
 
 
         $customers = Customer::create($data);
-        /*$customers = new Customer();
-        $customers->name = request('name');
-        $customers->email = request('email');
-        $customers->active = request('active');
-        $customers->save();
-         //รับข้อมูลจากฟิลส่งขึ้นDB
-        */
+        /* $customers = new Customer();
+          $customers->name = request('name');
+          $customers->email = request('email');
+          $customers->active = request('active');
+          $customers->save();
+          //รับข้อมูลจากฟิลส่งขึ้นDB
+         */
         //dd(request('name'));
         return back();
     }
+
 }

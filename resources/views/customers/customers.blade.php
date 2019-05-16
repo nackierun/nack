@@ -41,9 +41,8 @@ Customers
       </select>
   </div>
 
-    <div>
         <button type="submit" class="btn btn-primary col-md-6">บันทึก</button>
-        @csrf
+@csrf
     </div>
 
     <!-- แจ้งเตือนฟิลว่าง -->
@@ -51,8 +50,9 @@ Customers
     {{ $errors->first('email') }}
     {{ $errors->first('active') }}
 
+
 </form>
-</div>
+
 <div class="row col-sm-6">
 
 
@@ -83,7 +83,7 @@ Customers
     <div class = "col-md-6">
             @foreach ($companies as $company)
 
-        <h3>{{ $company->name }}</h3>
+        <h3>Company:{{ $company->name }}</h3>
         @foreach ($company->customers as $customer)
         <li>{{ $customer->name }}</li>
 

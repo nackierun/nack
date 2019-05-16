@@ -12,7 +12,7 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}"> Home</a></li>
+                        <a class="nav-link" href="{{ url('/companies') }}"> Home</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="customers">Contact us</a></li>
                         <li class="nav-item">

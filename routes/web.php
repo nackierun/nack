@@ -26,6 +26,7 @@ Route::post('customers', 'CustomersController@store');//บันทึกข้
 Route::get('company', 'CompanyController@index');
 Route::get('company/create', 'CompanyController@create');
 Route::post('company', 'CompanyController@store');
+Route::get('customers/{customer}','CustomersController@show');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

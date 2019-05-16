@@ -4,13 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model {
+class   Customer extends Model {
 
     //
     //protected $table = 'customers';
     //protected $fillable = ['name', 'email', 'active'];
 
     protected $guarded = [];
+
+    public  function  getActiveAttribute($attribute)
+    {
+       return [
+           0 => 'inactive',
+           1 => 'active'
+       ] [$attribute] ;
+    }
 
     public function scopeActive($query) {
 

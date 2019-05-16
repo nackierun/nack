@@ -63,9 +63,7 @@ class CustomersController extends Controller
         return redirect('customers');
     }
 
-    public function show($customer){
-
-        $customer = Customer::find($customer);
+    public function show(Customer $customer){
 
         return view('customers.show', compact('customer'));
     }

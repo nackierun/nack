@@ -60,7 +60,7 @@ class CustomersController extends Controller
           //รับข้อมูลจากฟิลส่งขึ้นDB
          */
         //dd(request('name'));
-        return redirect('customers');
+        return redirect('customers');   
     }
 
     public function show(Customer $customer){
